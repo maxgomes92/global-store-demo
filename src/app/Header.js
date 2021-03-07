@@ -1,7 +1,11 @@
 import React from 'react'
 
-export default function Header() {
+export default function Header({
+  firstName,
+}) {
   return (
-    <header>Welcome!</header>
+    <header>
+      {firstName ? `Welcome, ${firstName}!` : 'Welcome!'}
+    </header>
   )
 }

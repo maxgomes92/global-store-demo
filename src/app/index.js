@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css'
 import Card from './Card'
 import Cards from './Cards';
@@ -6,12 +7,18 @@ import Header from './Header';
 import Profile from './Profile';
 
 function App() {
+  const [userData, setUserData] = useState({})
+
+  const onSuccess = (data) => {
+    setUserData(data)
+  }
+
   return (
     <>
-      <Header />
+      <Header firstName={userData.firstName} />
       <Cards>
         <Card>
-          <Form />
+          <Form onSuccess={onSuccess} />
         </Card>
 
         <Card>
