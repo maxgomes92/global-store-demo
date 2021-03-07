@@ -7,9 +7,17 @@ export default function Form () {
       <h1>Fill in with some data</h1>
       <form>
         <div className="form-item">
-          <label htmlFor="name">Name</label>
+          <label htmlFor="first-name">First name</label>
           <VerticalSpace height={5} />
-          <input id="name" type="text" placeholder="Type in your name" />
+          <input id="first-name" type="text" placeholder="Type in your first name" />
+        </div>
+
+        <VerticalSpace height={5} />
+
+        <div className="form-item">
+          <label htmlFor="last-name">Last name</label>
+          <VerticalSpace height={5} />
+          <input id="last-name" type="text" placeholder="Type in your last name" />
         </div>
 
         <VerticalSpace height={5} />
