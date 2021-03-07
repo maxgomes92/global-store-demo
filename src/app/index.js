@@ -22,7 +22,7 @@ function App() {
         </Card>
 
         <Card>
-          <Profile />
+          <Profile {...userData} />
         </Card>
       </Cards>
     </>
