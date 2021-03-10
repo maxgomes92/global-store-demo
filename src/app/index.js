@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { AppProvider } from './store'
 import './App.css'
 import Card from './Card'
 import Cards from './Cards';
@@ -7,25 +7,19 @@ import Header from './Header';
 import Profile from './Profile';
 
 function App() {
-  const [userData, setUserData] = useState({})
-
-  const onSuccess = (data) => {
-    setUserData(data)
-  }
-
   return (
-    <>
-      <Header firstName={userData.firstName} />
+    <AppProvider>
+      <Header />
       <Cards>
         <Card>
-          <Form onSuccess={onSuccess} />
+          <Form />
         </Card>
 
         <Card>
-          <Profile {...userData} />
+          <Profile />
         </Card>
       </Cards>
-    </>
+    </AppProvider>
   );
 }
 

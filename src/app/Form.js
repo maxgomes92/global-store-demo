@@ -1,7 +1,9 @@
 import React, { useRef } from 'react'
 import VerticalSpace from './VerticalSpace'
+import { useApp } from './store'
 
-export default function Form ({ onSuccess }) {
+export default function Form () {
+  const { actions: { setUserData } } = useApp()
   const formRef = useRef()
   const firstNameRef = useRef()
   const lastNameRef = useRef()
@@ -10,7 +12,7 @@ export default function Form ({ onSuccess }) {
   const onSubmit = (event) => {
     event.preventDefault()
 
-    onSuccess({
+    setUserData({
       firstName: firstNameRef.current.value,
       lastName: lastNameRef.current.value,
       age: ageRef.current.value,
