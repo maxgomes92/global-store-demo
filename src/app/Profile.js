@@ -1,11 +1,11 @@
 import React from 'react'
+import { useApp } from './store'
 import VerticalSpace from './VerticalSpace'
 
-export default function Profile ({
-  firstName,
-  lastName,
-  age,
-}) {
+export default function Profile () {
+  const { state: { user } } = useApp()
+  const { firstName, lastName, age } = user
+
   return (
     <div className="profile">
       <div className="profile-picture">
