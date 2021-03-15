@@ -1,11 +1,19 @@
 import React from 'react'
 import VerticalSpace from './VerticalSpace'
 
-export default function Form () {
+export default function Form ({ onSuccess }) {
+  const onSubmit = (event) => {
+    event.preventDefault()
+
+    onSuccess({
+      firstName: event.target[0].value,
+    })
+  }
+
   return (
     <>
       <h1>Fill in with some data</h1>
-      <form>
+      <form onSubmit={onSubmit}>
         <div className="form-item">
           <label htmlFor="first-name">First name</label>
           <VerticalSpace height={5} />
