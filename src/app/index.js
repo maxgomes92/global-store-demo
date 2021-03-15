@@ -12,6 +12,16 @@ function App() {
     form.reset()
   }
 
+  const removeElement = (index) => {
+    return () => {
+      const newList = [...animals]
+
+      newList.splice(index, 1)
+
+      setAnimals(newList)
+    }
+  }
+
   return (
     <>
       <header>List of animals</header>
@@ -21,9 +31,9 @@ function App() {
         <button type="submit">Click to add animal</button>
       </form>
 
-      {animals.map((animal) => {
+      {animals.map((animal, index) => {
         return (
-          <p>{animal}</p>
+          <p>{animal} <button onClick={removeElement(index)}>Remove</button></p>
         )
       })}
     </>
